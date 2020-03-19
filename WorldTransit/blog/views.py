@@ -2,4 +2,5 @@ from django.shortcuts import render
 
 
 def questionResponse(request):
-    return render(request,'questionResponse.html')
+    post = ['sofiane','nicos','nour']
+    return render(request,'blog/questionResponse.html',{'posts':post})
