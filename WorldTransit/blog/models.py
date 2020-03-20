@@ -15,6 +15,6 @@ class Users(models.Model):
 class Questions(models.Model):
     title = models.CharField(max_length=255,default=None)
     content = models.TextField(default=None)
-    publishing_date = models.DateTimeField(default=None)
+    publishing_date = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
