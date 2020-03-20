@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>questionResponse</title>
+</head>
+<body>
+    <h1>questionResponse</h1>
+    {{ t }}
+    <ul>
+    {% for i in users %}
+        <li>{{ i }}</li>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
+        {% empty %}
+            <span>sorry </span>
+        {% endfor %}
+    </ul>
+</body>
+</html>
