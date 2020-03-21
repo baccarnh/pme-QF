@@ -1,7 +1,7 @@
 
     {% extends 'layouts/base.html' %}
 
-
+        {% load static %}
      {% block content %}
         <!--==========================
     Hero Section
@@ -9,7 +9,7 @@
   <section id="hero" class="wow fadeIn">
     <div class="hero-container">
       <h1>Welcome to WorldTransit</h1>
-      <img src="img/hero-img.png" alt="Hero Imgs">
+       <img src="{% static 'img/hero-img.png' %}" alt="Hero Imgs">
       <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
       <div class="btns">
         <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>
@@ -78,7 +78,7 @@
       <div class="row justify-content-center">
 
         <div class="col-md-5 col-lg-3">
-          <img src="img/about-img.png" alt="About">
+          <img src="{% static 'img/about-img.png' %}" alt="About">
         </div>
 
         <div class="col-md-7 col-lg-5">
@@ -121,7 +121,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/paint-palette.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/paint-palette.svg' %}" alt="img" class="img-fluid">
             <h4>creative design</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -129,7 +129,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/vector.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/vector.svg' %}" alt="img" class="img-fluid">
             <h4>Retina Ready</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -137,7 +137,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/design-tool.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/design-tool.svg' %}" alt="img" class="img-fluid">
             <h4>easy to use</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -145,7 +145,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/asteroid.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/asteroid.svg' %}" alt="img" class="img-fluid">
             <h4>Free Updates</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -153,7 +153,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/asteroid.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/asteroid.svg' %}" alt="img" class="img-fluid">
             <h4>Free Updates</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -161,7 +161,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/cloud-computing.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/cloud-computing.svg' %}" alt="img" class="img-fluid">
             <h4>App store support</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -169,7 +169,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/pixel.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/pixel.svg' %}" alt="img" class="img-fluid">
             <h4>Perfect Pixel</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -177,7 +177,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="img/svg/code.svg" alt="img" class="img-fluid">
+            <img src="{% static 'img/svg/code.svg' %}" alt="img" class="img-fluid">
             <h4>clean codes</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
@@ -202,15 +202,15 @@
     <div class="container">
       <div class="owl-carousel owl-theme">
 
-        <div><img src="img/screen/1.jpg" alt="img"></div>
-        <div><img src="img/screen/2.jpg" alt="img"></div>
-        <div><img src="img/screen/3.jpg" alt="img"></div>
-        <div><img src="img/screen/4.jpg" alt="img"></div>
-        <div><img src="img/screen/5.jpg" alt="img"></div>
-        <div><img src="img/screen/6.jpg" alt="img"></div>
-        <div><img src="img/screen/7.jpg" alt="img"></div>
-        <div><img src="img/screen/8.jpg" alt="img"></div>
-        <div><img src="img/screen/9.jpg" alt="img"></div>
+        <div><img src="{% static 'img/screen/1.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/2.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/3.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/4.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/5.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/6.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/7.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/8.jpg' %}" alt="img"></div>
+        <div><img src="{% static 'img/screen/9.jpg' %}" alt="img"></div>
 
       </div>
     </div>
@@ -252,7 +252,7 @@
 
         <div class="col-md-6 col-md-4 col-lg-3">
           <div class="team-block bottom">
-            <img src="img/team/1.jpg" class="img-responsive" alt="img">
+            <img src="{% static 'img/team/1.jpg' %}" class="img-responsive" alt="img">
             <div class="team-content">
               <ul class="list-unstyled">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -267,7 +267,7 @@
 
        <div class="col-md-6 col-md-4 col-lg-3">
           <div class="team-block bottom">
-            <img src="img/team/2.jpg" class="img-responsive" alt="img">
+            <img src="{% static 'img/team/2.jpg' %}" class="img-responsive" alt="img">
             <div class="team-content">
               <ul class="list-unstyled">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -282,7 +282,7 @@
 
         <div class="col-md-6 col-md-4 col-lg-3">
           <div class="team-block bottom">
-            <img src="img/team/3.jpg" class="img-responsive" alt="img">
+            <img src="{% static 'img/team/3.jpg' %}" class="img-responsive" alt="img">
             <div class="team-content">
               <ul class="list-unstyled">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -297,7 +297,7 @@
 
         <div class="col-md-6 col-md-4 col-lg-3">
           <div class="team-block bottom">
-            <img src="img/team/4.jpg" class="img-responsive" alt="img">
+            <img src="{% static 'img/team/4.jpg' %}" class="img-responsive" alt="img">
             <div class="team-content">
               <ul class="list-unstyled">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -498,7 +498,7 @@
 
         <div class="col-md-6 col-lg-4">
           <div class="block-blog text-left">
-            <a href="#"><img src="img/blog/blog-image-1.jpg" alt="img"></a>
+            <a href="#"><img src="{% static 'img/blog/blog-image-1.jpg' %}" alt="img"></a>
             <div class="content-blog">
               <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
               <span>05, juin 2017</span>
@@ -509,7 +509,7 @@
 
         <div class="col-md-6 col-lg-4">
           <div class="block-blog text-left">
-            <a href="#"><img src="img/blog/blog-image-2.jpg" class="img-responsive" alt="img"></a>
+            <a href="#"><img src="{% static 'img/blog/blog-image-2.jpg' %}" class="img-responsive" alt="img"></a>
             <div class="content-blog">
               <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
               <span>05, juin 2017</span>
@@ -520,7 +520,7 @@
 
         <div class="col-md-6 col-lg-4">
           <div class="block-blog text-left">
-            <a href="#"><img src="img/blog/blog-image-3.jpg" class="img-responsive" alt="img"></a>
+            <a href="#"><img src="{% static 'img/blog/blog-image-3.jpg' %}" class="img-responsive" alt="img"></a>
             <div class="content-blog">
               <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
               <span>05, juin 2017</span>
