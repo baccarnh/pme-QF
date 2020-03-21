@@ -6,8 +6,8 @@ from django.urls import path, include
 from WorldTransit import views
 
 urlpatterns = [
-    url(r'^$',views.home),
-    url(r'^login/$',views.login),
+    url(r'^$',views.home,name='home'),
+    url(r'^login/$',views.login,name='login'),
     url(r'^blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>page home</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <img src="{% static 'img/chat.png' %}">
-    <script src="{% static 'js/script.js' %}"></script>
-</head>
-<body>
-    <h1>page home</h1>
-</body>
-</html>
+
+    {% extends 'layouts/base.html' %}
+     {% load static %}
+    {% block img%}  {# <img src="{% static 'img/chat.png' %}">#}{% endblock %}
+     {% block content %}bodyyyyyyy{% endblock %}
+
