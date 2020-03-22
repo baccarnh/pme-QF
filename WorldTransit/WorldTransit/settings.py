@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'worldtransit',
-        'USER': 'admin',
-        'PASSWORD': 'password',
+        'USER': 'postgres',
+        'PASSWORD': 'lapa',
         'HOST': 'localhost',
         'PORT': '5432',
     }

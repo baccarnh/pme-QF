@@ -20,6 +20,11 @@ class Questions(models.Model):
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
 
+    def __str__(self):
+        return f'auteur:{self.author} Question du {self.publishing_date} Questions: {self.content}'
+
+
+
 
 
 class Response(models.Model):
@@ -29,5 +34,8 @@ class Response(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
+
+    def __str__(self):
+        return f'auteur:{self.author} Réponse du {self.publishing_date} Réponse: {self.content}'
 
 
