@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title> {% block title %} WorldTransit {% endblock title%}</title>
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap css -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link href="{% static 'css/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="{% static 'css/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/owlcarousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/modal-video/css/modal-video.min.css' %}" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="{% static 'css/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include 'layouts/nav.html' %}
+    {% block img%}{% endblock %}
+    {% block content %}{% endblock content %}
+    {% include 'layouts/footer.html' %}
+   <!-- JavaScript Libraries -->
+  <script src="{% static 'css/lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'css/lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'css/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'css/lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'css/lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'css/lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'css/lib/modal-video/js/modal-video.js' %}"></script>
+  <script src="{% static 'css/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'css/lib/wow/wow.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'js/contactform/contactform.js' %}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/js/main.js' %}"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+</body>
+</html>
