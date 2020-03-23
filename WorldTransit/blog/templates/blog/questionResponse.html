@@ -2,39 +2,58 @@
 
         {% load static %}
      {% block content %}
-<!DOCTYPE html>
 <html lang="fr">
-<head>
+
     <meta charset="UTF-8">
     <title>questionResponse</title>
-</head>
-<body>
-    <h1>questionResponse</h1>
-    <p>QUESTIONS</p>
-    <ul>
-    {% for i in quest %}
-        <li>{{ i }}</li>
-        {% if not forloop.last %}
-        <hr>
-        {% endif %}
-        {% empty %}
-            <span>sorry </span>
-        {% endfor %}
 
-    </ul>
-    <p>REPONSES</p>
-    <ul>
-    {% for k in resp %}
-        {% for y in k %}
-        <li>{{ y }}</li>
-        {% if not forloop.last %}
-        <hr>
-        {% endif %}
-        {% empty %}
-            <span>sorry </span>
-        {% endfor %}
-        {% endfor %}
-    </ul>
-</body>
+
+
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+        <h2>Questions ainsi que (ca) ou c'est réponses </h2>
+        <p class="separator"><hr> .</p>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-12">
+              <div class="feature-block">
+                  <h4>Question</h4>
+                  {% for i in quest %}
+                  <p>{{ i }}</p>
+                  {% if not forloop.last %}
+                  <hr>
+                  {% endif %}
+                  {% empty %}
+                  {% endfor %}
+              </div>
+          </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-12">
+                <div class="feature-block">
+                    <h4>Reponses</h4>
+                    {% for i in resp %} {% for k in i %}
+                    <p>{{ k }}</p>
+                    {% if not forloop.last %}
+                    <hr>
+                    {% endif %}
+                    {% empty %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
 </html>
 {% endblock %}

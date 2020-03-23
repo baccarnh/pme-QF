@@ -8,6 +8,8 @@ class Users(models.Model):
     job = models.CharField(max_length=255,default=None)
     password = models.CharField(max_length=255,default=None)
 
+
+
     def __str__(self):
         return f'name({self.name}),last_name({self.last_name}),pseudo({self.pseudo})'
 
@@ -20,8 +22,9 @@ class Questions(models.Model):
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
 
+
     def __str__(self):
-        return f'auteur:{self.author} Question du {self.publishing_date} Questions: {self.content}'
+        return f'Titre: {self.title} auteur:{self.author} Question du {self.publishing_date} Questions: {self.content}'
 
 
 
