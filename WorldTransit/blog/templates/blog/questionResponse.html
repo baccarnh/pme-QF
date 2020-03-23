@@ -13,15 +13,14 @@
     <p>QUESTIONS</p>
     <ul>
     {% for i in quest %}
-        {% for j in i %}
-        <li>{{ j }}</li>
+        <li>{{ i }}</li>
         {% if not forloop.last %}
         <hr>
         {% endif %}
         {% empty %}
             <span>sorry </span>
         {% endfor %}
-        {% endfor %}
+
     </ul>
     <p>REPONSES</p>
     <ul>

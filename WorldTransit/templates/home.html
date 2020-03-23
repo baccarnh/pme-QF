@@ -39,7 +39,14 @@
         <div class="col-md-6 col-lg-4">
           <div class="feature-block">
             <h4>est ce que le corona viruse se transmet par l'aire ?</h4>
-            <p>non le corona se transmet par voie respiratoire....</p>
+            {% for i in quest %}
+            <p>{{ i }}</p>
+            {% if not forloop.last %}
+        <hr>
+        {% endif %}
+        {% empty %}
+            <span>sorry </span>
+        {% endfor %}
             <a href="#">lire plus</a>
 
           </div>
