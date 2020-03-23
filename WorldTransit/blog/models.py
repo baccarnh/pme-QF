@@ -23,8 +23,8 @@ class Questions(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
 
 
-    def __str__(self):
-        return f'Titre: {self.title} auteur:{self.author} Question du {self.publishing_date} Questions: {self.content}'
+    #def __str__(self):
+        #return f'Titre: {self.title} auteur:{self.author} Question du {self.publishing_date} Questions: {self.content}'
 
 
 
@@ -39,7 +39,7 @@ class Response(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
     bases = (models.Model),
 
-    def __str__(self):
-        return f'auteur:{self.author} Réponse du {self.publishing_date} Réponse: {self.content}'
+    #def __str__(self):
+        #return f'auteur:{self.author} Réponse du {self.publishing_date} Réponse: {self.content}'
 
 

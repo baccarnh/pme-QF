@@ -23,9 +23,11 @@
       <div class="row">
           <div class="col-md-6 col-lg-12">
               <div class="feature-block">
-                  <h4>Question</h4>
                   {% for i in quest %}
-                  <p>{{ i }}</p>
+                  <h3>{{ i.title }}</h3>
+                  <h4>{{i.author}}</h4>
+                  <p>{{ i.content }}</p>
+                  <p>{{i.publishing_date}}</p>
                   {% if not forloop.last %}
                   <hr>
                   {% endif %}
@@ -40,7 +42,9 @@
                 <div class="feature-block">
                     <h4>Reponses</h4>
                     {% for i in resp %} {% for k in i %}
-                    <p>{{ k }}</p>
+                    <h4>{{ k.author }}</h4>
+                    <p>{{ k.content }}</p>
+                    <p>{{k.publishing_date}}</p>
                     {% if not forloop.last %}
                     <hr>
                     {% endif %}

@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-
+from blog.models import Questions
 
 def home(request):
-    return render(request,'home.html' )
+    quest = Questions.objects.get()
+    liste = list()
+    liste.append(quest)
+    return render(request, 'home.html', {'quest': liste})
+
 
 
 def login(request):
