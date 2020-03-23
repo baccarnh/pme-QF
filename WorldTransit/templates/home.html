@@ -26,52 +26,29 @@
 
     <div class="container">
       <div class="section-title text-center">
-
         <h2>Quelques questions reponses </h2>
         <p class="separator"><hr> .</p>
-
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-12">
           <div class="feature-block">
-            <h4>est ce que le corona viruse se transmet par l'aire ?</h4>
             {% for i in quest %}
-            <p>{{ i }}</p>
+            {% for k in i %}
+            <h4>{{k.title}}</h4>
+            <p>{{k.content}}</p>
             {% if not forloop.last %}
         <hr>
         {% endif %}
         {% empty %}
             <span>sorry </span>
-        {% endfor %}
             <a href="#">lire plus</a>
-
+             {% endfor %}
+              {% endfor %}
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="feature-block">
-            <h4>est ce que le corona viruse se transmet par l'aire ?</h4>
-            <p>non le corona se transmet par voie respiratoire....</p>
-            <a href="#">lire plus</a>
-
-          </div>
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-          <div class="feature-block">
-            <h4>est ce que le corona viruse se transmet par l'aire ?</h4>
-            <p>non le corona se transmet par voie respiratoire....</p>
-            <a href="#">lire plus</a>
-
-          </div>
-        </div>
-
-
       </div>
     </div>
 

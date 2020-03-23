@@ -3,7 +3,7 @@ from django.http import Http404
 from blog.models import Questions
 
 def home(request):
-    quest = Questions.objects.get()
+    quest = Questions.objects.all()
     liste = list()
     liste.append(quest)
     return render(request, 'home.html', {'quest': liste})
