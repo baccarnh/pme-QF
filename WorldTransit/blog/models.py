@@ -21,6 +21,7 @@ class Questions(models.Model):
     publishing_date = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
+    status = models.BooleanField(null=True)
 
 
     #def __str__(self):

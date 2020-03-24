@@ -26,8 +26,8 @@ SECRET_KEY = 'do1%go@r#096rbmzp=_5_utno6os2l=3m)yo))7o8%=gt6xh2^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-LOGIN_REDIRECT_URL  =  '/questionResponse'
+LOGIN_URL='/account/login'
+LOGIN_REDIRECT_URL = '/blog/templates/home'
 
 # Application definition
 

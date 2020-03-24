@@ -1,8 +1,9 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from .models import Questions, Response
-from .models import Users
-from .models import Users
+
+
+
 
 def questionResponse(request):
     """request for search object in table and return objects in templates for display informations"""
