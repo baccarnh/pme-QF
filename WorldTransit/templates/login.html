@@ -13,6 +13,9 @@
     {% csrf_token %}
     <input type="text" name="username" placeholder="Utilisateur">
     <input type="password" name="password" placeholder="Mot de passe">
+        {% if form.errors %}
+        <p class=" label label-danger">Your username and password didn't match. Please try again.</p>
+        {% endif %}
     <input type="submit" value="login" />
 </form>
 </body>

@@ -3,11 +3,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from WorldTransit import views
+from . import views
+
+
 
 urlpatterns = [
-    url(r'^$',views.home,name='home'),
-    url(r'^login/$', views.login, name='login'),
+
+
+    url(r'^$', views.login, name='login'),
     url(r'^blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]
