@@ -7,22 +7,21 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, logout, login
 
 
-class LoginView(SuccessURLAllowedHostsMixin, FormView):
+"""class LoginView(SuccessURLAllowedHostsMixin, FormView):
     form_class = AuthenticationForm
     authentication_form = None
-    template_name = 'templates/login.html'
-
+    template_name = 'templates/login.html'"""
 
 """def home(request):
     quest = Questions.objects.all()
     liste = list()
     liste.append(quest)
-    return render(request, 'blog/home.html', {'quest': liste})"""
-
-"""def login(request):
-    return render(request,'/blog/login.html')"""
+    return render(request, 'home.html', {'quest': liste})"""
 
 def login(request):
+    return render(request,'blog/login.html')
+
+"""def login(request):
     if request.user.is_authenticated:
         return render(request, 'home.html')
     if request.method == 'POST':
@@ -37,9 +36,13 @@ def login(request):
             return render(request, 'login.html', {'form': form})
     else:
         form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
+        return render(request, 'login.html', {'form': form})"""
 
 def createaccount(request):
+    return render(request, 'blog/createaccount.html')
+
+
+"""def createaccount(request):
     if request.method == 'POST':
         form = Users(request.POST)
         if form.is_valid():
@@ -51,7 +54,9 @@ def createaccount(request):
             return redirect('home')
     else:
         form = Users()
-    return render(request, 'createaccount.html', {'form': form})
+    return render(request, 'blog/createaccount.html', {'form': form})"""
+
+
 """def signout(request):
     logout(request)
     return redirect('login')"""
