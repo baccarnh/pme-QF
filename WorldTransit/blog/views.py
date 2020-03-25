@@ -18,15 +18,17 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
+            Users = form.save()
+            Users.refresh_from_db()  # load the profile instance created by the signal
+            #user.profile.birth_date = form.cleaned_data.get('birth_date')
+            Users.save()
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
+            user = authenticate(username=Users.username, password=raw_password)
+            login(request, Users)
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'blog/createaccount.html', {'form': form})
 
 
 
