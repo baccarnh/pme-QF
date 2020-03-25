@@ -31,11 +31,9 @@ def signup(request):
     return render(request, 'blog/createaccount.html', {'form': form})
 
 
-
-
 def useraccount(request):
     """method for return useraccount.html"""
-    quest = Questions.objects.filter(author='nicos')
+    quest = Questions.objects.filter(author='nicos', status=None)
     liste = list()
     liste.append(quest)
     return render(request, 'blog/useraccount.html', {'quest': liste})
