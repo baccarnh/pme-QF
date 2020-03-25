@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Questions, Response
+from .models import Questions, Response, Users
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import SuccessURLAllowedHostsMixin, FormView
 from django.contrib.auth.forms import AuthenticationForm
@@ -13,15 +13,16 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
     template_name = 'templates/login.html'
 
 
-def home(request):
+"""def home(request):
     quest = Questions.objects.all()
     liste = list()
     liste.append(quest)
-    return render(request, 'blog/home.html', {'quest': liste})
-
-
+    return render(request, 'blog/home.html', {'quest': liste})"""
 
 """def login(request):
+    return render(request,'/blog/login.html')"""
+
+def login(request):
     if request.user.is_authenticated:
         return render(request, 'home.html')
     if request.method == 'POST':
@@ -36,8 +37,21 @@ def home(request):
             return render(request, 'login.html', {'form': form})
     else:
         form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})"""
+        return render(request, 'login.html', {'form': form})
 
+def createaccount(request):
+    if request.method == 'POST':
+        form = Users(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = Users()
+    return render(request, 'createaccount.html', {'form': form})
 """def signout(request):
     logout(request)
     return redirect('login')"""

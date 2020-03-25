@@ -6,8 +6,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-
-    url(r'^$',views.questionResponse,name='questionResponse'),
-    url(r'^',views.home,name='home'),
-
+    #url(r'^$', views.home, name='home'),
+    url(r'^', views.login, name='login'),
+    url(r'^questionResponse/',views.questionResponse,name='questionResponse'),
+    url(r'^createaccount', views.createaccount, name='createaccount'),
 ]

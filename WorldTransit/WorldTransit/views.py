@@ -8,15 +8,15 @@ from django.contrib.auth.views import SuccessURLAllowedHostsMixin, FormView
 
 #user = authenticate(username='john', password='secret')
 
-def login(request):
-    return render(request,'login.html')
+"""def login(request):
+    return render(request,'l/blog/templates/ogin.html')"""
 
 
-"""def home(request):
+def home(request):
     quest = Questions.objects.all()
     liste = list()
     liste.append(quest)
-    return render(request, '/blog/templates/pages/home.html', {'quest': liste})"""
+    return render(request, 'home.html', {'quest': liste})
 
 
 
