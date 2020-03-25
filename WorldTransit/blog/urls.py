@@ -6,12 +6,10 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('createaccount/', views.createaccount, name='createaccount'),
+    path('createaccount/', views.signup, name='createaccount'),
     path('login/', views.login, name='login'),
     path('questionResponse/', views.questionResponse, name='questionResponse'),
     path('useraccount/', views.useraccount, name='useraccount'),
-
-
 ]
 
 #url(r'^$', views.home, name='home'),

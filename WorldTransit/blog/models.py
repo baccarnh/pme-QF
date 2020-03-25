@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 """class for 3 tables Users, Questions, Answers"""
 
 class Users(models.Model):
@@ -8,10 +12,15 @@ class Users(models.Model):
     job = models.CharField(max_length=255,default=None)
     password = models.CharField(max_length=255,default=None)
 
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Users.objects.create(user=instance)
+    instance.profile.save()
 
 
-    def __str__(self):
-        return f'name({self.name}),last_name({self.last_name}),pseudo({self.pseudo})'
+    #def __str__(self):
+        #return f'name({self.name}),last_name({self.last_name}),pseudo({self.pseudo})'
 
 
 class Questions(models.Model):

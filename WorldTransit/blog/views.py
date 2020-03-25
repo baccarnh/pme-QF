@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import SuccessURLAllowedHostsMixin, FormView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, logout, login
-
+from .forms import SignUpForm
 
 def login(request):
     """method for return login.html"""
@@ -13,9 +13,22 @@ def login(request):
 
 
 
-def createaccount(request):
+def signup(request):
     """method for return createaccount.html"""
-    return render(request, 'blog/createaccount.html')
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
+
 
 
 def useraccount(request):
