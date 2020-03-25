@@ -42,6 +42,9 @@ def createaccount(request):
     return render(request, 'blog/createaccount.html')
 
 
+def useraccount(request):
+    return render(request, 'blog/useraccount.html')
+
 """def createaccount(request):
     if request.method == 'POST':
         form = Users(request.POST)

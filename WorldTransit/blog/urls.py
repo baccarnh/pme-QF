@@ -13,6 +13,7 @@ urlpatterns = [
     path('createaccount/', views.createaccount, name='createaccount'),
     path('login/', views.login, name='login'),
     path('questionResponse/', views.questionResponse, name='questionResponse'),
+    path('useraccount/', views.useraccount, name='useraccount'),
 
 
 ]
