@@ -6,10 +6,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    #url(r'^$', views.home, name='home'),
-    #url(r'^', views.login, name='login'),
-    #url(r'^',views.questionResponse,name='questionResponse'),
-    #url(r'^', views.createaccount, name='createaccount'),
     path('createaccount/', views.createaccount, name='createaccount'),
     path('login/', views.login, name='login'),
     path('questionResponse/', views.questionResponse, name='questionResponse'),
@@ -17,3 +13,8 @@ urlpatterns = [
 
 
 ]
+
+#url(r'^$', views.home, name='home'),
+#url(r'^', views.login, name='login'),
+#url(r'^',views.questionResponse,name='questionResponse'),
+#url(r'^', views.createaccount, name='createaccount'),
