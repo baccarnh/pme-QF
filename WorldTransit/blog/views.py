@@ -35,7 +35,10 @@ def signup(request):
 
 def useraccount(request):
     """method for return useraccount.html"""
-    return render(request, 'blog/useraccount.html')
+    quest = Questions.objects.filter(author='nicos')
+    liste = list()
+    liste.append(quest)
+    return render(request, 'blog/useraccount.html', {'quest': liste})
 
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
