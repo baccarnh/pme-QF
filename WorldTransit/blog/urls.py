@@ -12,6 +12,6 @@ urlpatterns = [
     #url(r'^', views.createaccount, name='createaccount'),
     path('createaccount/', views.createaccount, name='createaccount'),
     path('login/', views.login, name='login'),
-
+    path('questionResponse/', views.questionResponse, name='questionResponse'),
 
 ]
