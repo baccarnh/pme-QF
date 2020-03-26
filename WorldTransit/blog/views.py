@@ -1,10 +1,7 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import SuccessURLAllowedHostsMixin, FormView
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, logout, login
+
 from .forms import SignUpForm, ResponseForm, QuestionForm
 
 def login(request):

@@ -1,8 +1,7 @@
 from django import forms
 from .models import Users, Response, Questions
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
+"""class for create form with models class """
 
 class SignUpForm(forms.ModelForm):
     class Meta:

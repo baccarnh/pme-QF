@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('questionResponse/', views.questionResponse, name='questionResponse'),
     path('useraccount/', views.useraccount, name='useraccount'),
+    path('newquestions/', views.questions, name='newquestions'),
 ]
 
 #url(r'^$', views.home, name='home'),
