@@ -58,7 +58,7 @@ def response(request):
             return redirect('blog/questionResponse.html')
     else:
         form = ResponseForm()
-    return render(request, 'blog/useraccount.html', {'form': form})
+    return render(request, 'blog/questionReponse.html', {'form': form})
     
 
 
@@ -73,7 +73,7 @@ def questions(request):
             return redirect('blog/useraccount.html')
     else:
         form = QuestionForm()
-    return render(request, 'blog/createaccount.html', {'form': form})
+    return render(request, 'blog/newquestions.html', {'form': form})
 
 
 def handler404(request):

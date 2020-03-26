@@ -1,4 +1,4 @@
-% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %}
 
         {% load static %}
      {% block content %}
@@ -6,12 +6,20 @@
 
     <meta charset="UTF-8">
     <body>
-    <title>questionResponse</title>
+    <title>Nouvelles Questions</title>
 
 
 
 <section id="get-started" class="padd-section text-center wow fadeInUp">
 
+    <div class="container">
+      <div class="section-title text-center">
+
+
+        <p class="separator"><hr> .</p>
+
+      </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-12">
@@ -28,7 +36,7 @@
                         {% endfor %}
                       </p>
                     {% endfor %}
-                    <button type="submit">Post</button>
+                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Post</a></button>
                   </form>
                 </div>
             </div>

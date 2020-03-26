@@ -38,29 +38,7 @@
       </div>
     </div>
 
-    <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-12">
-                    <div class="feature-block">
-                      <h2>Reponse</h2>
-                      <form method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
-                          <p>
-                            {{ field.label_tag }}<br>
-                            {{ field }}
 
-                            {% for error in field.errors %}
-                              <p style="color: red">{{ error }}</p>
-                            {% endfor %}
-                          </p>
-                        {% endfor %}
-                        <button type="submit">Post</button>
-                      </form>
-                    </div>
-                </div>
-            </div>
-    </div>
 
 
     <div class="container">
