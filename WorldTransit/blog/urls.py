@@ -12,6 +12,7 @@ urlpatterns = [
     path('questionResponse/', views.questionResponse, name='questionResponse'),
     path('useraccount/', views.useraccount, name='useraccount'),
     path('newquestions/', views.questions, name='newquestions'),
+    path('response/', views.response, name='response'),
 ]
 
 #url(r'^$', views.home, name='home'),

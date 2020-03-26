@@ -52,7 +52,7 @@ def useraccount(request):
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
     if request.method == 'GET':
-        quest = get_object_or_404(Questions, id=1)
+        quest = get_object_or_404(Questions, id=2)
         liste = list()
         liste.append(quest)
 

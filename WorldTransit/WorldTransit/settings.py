@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'WorldTransit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'worldtransit',
+        'NAME': 'WorldTransit',
         'USER': 'postgres',
-        'PASSWORD': 'lapa',
+        'PASSWORD': 'as122014',
         'HOST': 'localhost',
         'PORT': '5432',
     }
