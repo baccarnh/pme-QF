@@ -20,7 +20,7 @@ def connexion(request):
                 error = True
     else:
         form = ConnexionForm()
-    return render(request,'blog/login.html', locals())
+    return render(request,'blog/useraccount.html', locals())
 
 def deconnexion(request):
     logout(request)
