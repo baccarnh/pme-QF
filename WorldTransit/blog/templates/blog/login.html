@@ -61,11 +61,11 @@
                         {% csrf_token %}
                             <div class="form-group">
                                 <label for="ex">Username</label>
-                                <input type="text" name="username" id="ex" >
+                                <input type="text" name="username" id="ex" required >
                             </div>
                             <div class="form-group">
                                 <label for="ex1">Password</label>
-                                <input type="password" name="password" id="ex1" >
+                                <input type="password" name="password" id="ex1" required >
                             </div>
                             {% if form.errors %}
                             <p class=" label label-danger">Your username and password didn't match. Please try again.</p>

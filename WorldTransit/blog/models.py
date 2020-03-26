@@ -49,6 +49,11 @@ class Response(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
     bases = (models.Model),
 
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Users.objects.create(user=instance)
+    instance.profile.save()
     #def __str__(self):
         #return f'auteur:{self.author} Réponse du {self.publishing_date} Réponse: {self.content}'
 

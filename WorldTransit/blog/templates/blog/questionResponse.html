@@ -37,26 +37,32 @@
           </div>
       </div>
     </div>
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-12">
-                <div class="feature-block">
-                  <form>
-                      <h3>Répondre</h3>
-                      <div class="form-group">
-                        <label for="exampleFormControlInput1">Titre</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" >
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Questions</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-success">Post réponse</button>
-                  </form>
+            <div class="row">
+                <div class="col-md-6 col-lg-12">
+                    <div class="feature-block">
+                      <h2>Reponse</h2>
+                      <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                          <p>
+                            {{ field.label_tag }}<br>
+                            {{ field }}
+
+                            {% for error in field.errors %}
+                              <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                          </p>
+                        {% endfor %}
+                        <button type="submit">Post</button>
+                      </form>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-12">
