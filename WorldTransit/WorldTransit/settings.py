@@ -26,7 +26,7 @@ SECRET_KEY = 'do1%go@r#096rbmzp=_5_utno6os2l=3m)yo))7o8%=gt6xh2^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-LOGIN_URL='/templates/login'
+LOGIN_URL='/connexion/'
 LOGIN_REDIRECT_URL = '/blog/templates/blog/home'
 
 # Application definition

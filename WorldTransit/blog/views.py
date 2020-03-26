@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
 from django.contrib.auth import authenticate, login, logout
@@ -23,6 +23,7 @@ def connexion(request):
     return render(request,'blog/useraccount.html', locals())
 
 def deconnexion(request):
+    """method for log out user account"""
     logout(request)
     return redirect(reverse(connexion))
 
@@ -39,7 +40,7 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'blog/createaccount.html', {'form': form})
 
-
+@login_required
 def useraccount(request):
     """method for return useraccount.html"""
     quest = Questions.objects.filter(author='nicos', status=None)
@@ -48,7 +49,7 @@ def useraccount(request):
     return render(request, 'blog/useraccount.html', {'quest': liste})
 
 
-
+@login_required
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
     if request.method == 'GET':
@@ -62,7 +63,7 @@ def questionResponse(request):
         return render(request, 'blog/questionResponse.html', {'quest':liste, 'resp': liste2})
 
 
-
+@login_required
 def response(request):
     """method for post response"""
     if request.method == 'POST':
@@ -77,7 +78,7 @@ def response(request):
     return render(request, 'blog/questionReponse.html', {'form': form})
     
 
-
+@login_required
 def questions(request):
     """method for post questions"""
     if request.method == 'POST':
