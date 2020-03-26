@@ -7,13 +7,11 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.views import SuccessURLAllowedHostsMixin, FormView
 
 
-
-
 def home(request):
-    quest = Questions.objects.all()
-    liste = list()
-    liste.append(quest)
-    return render(request, 'home.html', {'quest': liste})
+
+    return render(request, 'home.html')
+
+
 
 
 

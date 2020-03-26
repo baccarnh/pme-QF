@@ -26,8 +26,8 @@ SECRET_KEY = 'do1%go@r#096rbmzp=_5_utno6os2l=3m)yo))7o8%=gt6xh2^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-LOGIN_URL='/templates/login'
-LOGIN_REDIRECT_URL = '/blog/templates/blog/home'
+#LOGIN_URL='/templates/login'
+#LOGIN_REDIRECT_URL = '/blog/templates/blog/home'
 
 # Application definition
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'WorldTransit.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,15 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'WorldTransit',
-<<<<<<< HEAD
         'USER': 'postgres',
         'PASSWORD': 'as122014',
         'HOST': 'localhost',
-=======
-        'USER': 'nour',
-        'PASSWORD': '1983',
-        'HOST': '127.0.0.1',
->>>>>>> 1d866e94fd25dc6f91f5324bdee55655d423e175
         'PORT': '5432',
     }
 }
@@ -132,9 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+
 INTERNAL_IPS = [
     # ...
     '127.0.0.1',

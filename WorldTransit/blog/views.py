@@ -1,9 +1,9 @@
-from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from .forms import SignUpForm, ResponseForm, QuestionForm, ConnexionForm
+
 
 def connexion(request):
     """method for return login.html"""
@@ -22,9 +22,10 @@ def connexion(request):
         form = ConnexionForm()
     return render(request,'blog/login.html', locals())
 
+
 def deconnexion(request):
-    logout(request)
-    return redirect(reverse(connexion))
+    #le traitement de deconnection a faire
+    return render(request, 'home.html')
 
 def signup(request):
     """method for return createaccount.html"""
@@ -48,7 +49,6 @@ def useraccount(request):
     return render(request, 'blog/useraccount.html', {'quest': liste})
 
 
-
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
     if request.method == 'GET':
@@ -60,7 +60,6 @@ def questionResponse(request):
         liste2 = list()
         liste2.append(resp)
         return render(request, 'blog/questionResponse.html', {'quest':liste, 'resp': liste2})
-
 
 
 def response(request):
@@ -76,7 +75,6 @@ def response(request):
         form = ResponseForm()
     return render(request, 'blog/questionReponse.html', {'form': form})
     
-
 
 def questions(request):
     """method for post questions"""
@@ -94,5 +92,9 @@ def questions(request):
 
 def handler404(request):
     return render(request,'errors/404.html',status=404)
+
+
+
+
 
 

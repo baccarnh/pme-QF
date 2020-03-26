@@ -1,13 +1,7 @@
-{% extends 'layouts/base.html' %}
+{% extends 'blog/layouts/base.html' %}
 
         {% load static %}
      {% block content %}
-<html lang="fr">
-
-    <meta charset="UTF-8">
-    <body>
-    <title>questionResponse</title>
-
 
 
 <section id="get-started" class="padd-section text-center wow fadeInUp">
@@ -25,7 +19,7 @@
             <div class="col-md-6 col-lg-12">
                 <div class="feature-block">
                   <h2>New Questions</h2>
-                  <form method="post" action="{% url 'response' %}">
+                  <form method="post" >
                      <label for="pseudo">Votre pseudo :</label>
                     <input type="text" name="pseudo" id="pseudo" />
 
