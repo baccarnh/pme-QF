@@ -11,4 +11,7 @@ urlpatterns = [
     path('useraccount/', views.useraccount, name='useraccount'),
     path('newquestions/', views.questions, name='newquestions'),
     path('response/', views.response, name='response'),
+
 ]
+
+

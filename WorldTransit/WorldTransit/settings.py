@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'WorldTransit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'worldtransit',
+        'NAME': 'WorldTransit',
         'USER': 'postgres',
-        'PASSWORD': 'lapa',
+        'PASSWORD': 'as122014',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -126,9 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+
 INTERNAL_IPS = [
     # ...
     '127.0.0.1',

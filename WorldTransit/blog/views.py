@@ -1,7 +1,7 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 from .forms import SignUpForm, ResponseForm, QuestionForm, ConnexionForm
 
 
@@ -52,7 +52,7 @@ def useraccount(request):
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
     if request.method == 'GET':
-        quest = get_object_or_404(Questions, id=1)
+        quest = get_object_or_404(Questions, id=2)
         liste = list()
         liste.append(quest)
 
@@ -74,7 +74,7 @@ def response(request):
     else:
         form = ResponseForm()
     return render(request, 'blog/questionReponse.html', {'form': form})
-    
+
 
 def questions(request):
     """method for post questions"""
@@ -92,5 +92,9 @@ def questions(request):
 
 def handler404(request):
     return render(request,'errors/404.html',status=404)
+
+
+
+
 
 
