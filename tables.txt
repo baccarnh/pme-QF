@@ -1,0 +1,27 @@
+Table Users
+
+UserID: int serial primary key, NOT_NULL
+name: varchar(50), NOT_NULL
+lastname: varcher(50), NOT_NULL
+pseudo: varcher(50), NOT_NULL
+
+========================================
+
+Table Questions
+
+id: int serial primary key, NOT_NULL
+title: text, NOT_NULL
+content: text, NOT_NULL
+publishing_date: timestampzs, NOT_NUll
+author: varchar(50), NOT_NULL
+UserID: int , FOREIGN KEY
+
+========================================
+
+Table Answers
+
+id: int serial primary key, NOT_NULL
+content: text, NOT_NULL
+publishing_date: timestampzs, NOT_NUll
+author: varchar(50), NOT_NULL
+UserID: int , FOREIGN KEY

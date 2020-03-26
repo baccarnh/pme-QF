@@ -26,7 +26,8 @@ SECRET_KEY = 'do1%go@r#096rbmzp=_5_utno6os2l=3m)yo))7o8%=gt6xh2^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_URL='/templates/login'
+LOGIN_REDIRECT_URL = '/blog/templates/blog/home'
 
 # Application definition
 
@@ -79,10 +80,10 @@ WSGI_APPLICATION = 'WorldTransit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'WorldTransit',
+        'NAME': 'worldtransit',
         'USER': 'postgres',
-        'PASSWORD': 'as122014',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'lapa',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

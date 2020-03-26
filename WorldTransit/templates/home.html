@@ -3,7 +3,7 @@
 
         {% load static %}
      {% block content %}
-        <!--==========================
+    <!--==========================
     Hero Section
   ============================-->
   <section id="hero" class="wow fadeIn">
@@ -35,6 +35,7 @@
 
     <div class="container">
       <div class="row">
+<<<<<<< HEAD
         <!-------ici je vais recuper les donner a partir de la base a propos question reponse----------->
         <div class="col-md-6 col-lg-4">
           <div class="feature-block">
@@ -71,6 +72,24 @@
         </div>
     <!--------------------------------------------------------------------------------------------------->
 
+=======
+        <div class="col-md-6 col-lg-12">
+          <div class="feature-block">
+            {% for i in quest %}
+            {% for k in i %}
+            <h4>{{k.title}}</h4>
+            <p>{{k.content}}</p>
+            {% if not forloop.last %}
+        <hr>
+        {% endif %}
+        {% empty %}
+            <span>sorry </span>
+            <a href="#">lire plus</a>
+             {% endfor %}
+              {% endfor %}
+          </div>
+        </div>
+>>>>>>> 55971d6782b6cfa575a67138ae531e20e1711a32
       </div>
     </div>
 
@@ -481,5 +500,6 @@
     </div>
   </section><!-- #contact -->
 
-     {% endblock %}
+
+    {% endblock %}
 

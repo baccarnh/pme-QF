@@ -1,21 +1,68 @@
-<!DOCTYPE html>
+{% extends 'layouts/base.html' %}
+
+        {% load static %}
+     {% block content %}
 <html lang="fr">
-<head>
+
     <meta charset="UTF-8">
     <title>questionResponse</title>
-</head>
-<body>
-    <h1>questionResponse</h1>
 
-    <ul>
-    {% for i in users %}
-        <li>{{ i }}</li>
-        {% if not forloop.last %}
-        <hr>
-        {% endif %}
-        {% empty %}
-            <span>sorry </span>
-        {% endfor %}
-    </ul>
-</body>
+
+
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+        <h2>Questions ainsi que (ca) ou c'est réponses </h2>
+        <p class="separator"><hr> .</p>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-12">
+              <div class="feature-block">
+                  {% for i in quest %}
+                  <h3>{{ i.title }}</h3>
+                  <h4>{{i.author}}</h4>
+                  <p>{{ i.content }}</p>
+                  <p>{{i.publishing_date}}</p>
+                  {% if not forloop.last %}
+                  <hr>
+                  {% endif %}
+                  {% empty %}
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-12">
+                <div class="feature-block">
+                    <h4>Reponses</h4>
+                    {% for i in resp %} {% for k in i %}
+                    <h4>{{ k.author }}</h4>
+                    <p>{{ k.content }}</p>
+                    <p>{{k.publishing_date}}</p>
+                    {% if not forloop.last %}
+                    <hr>
+                    {% endif %}
+                    {% empty %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
 </html>
+{% endblock %}
