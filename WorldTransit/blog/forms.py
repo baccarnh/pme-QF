@@ -3,6 +3,10 @@ from .models import Users, Response, Questions
 
 """class for create form with models class """
 
+class ConnexionForm(forms.Form):
+    name = forms.CharField(label="Nom d'utilisateur", max_length=30)
+    password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput)
+
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = Users

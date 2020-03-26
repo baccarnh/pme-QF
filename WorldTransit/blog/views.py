@@ -1,14 +1,30 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+from .forms import SignUpForm, ResponseForm, QuestionForm, ConnexionForm
 
-from .forms import SignUpForm, ResponseForm, QuestionForm
-
-def login(request):
+def connexion(request):
     """method for return login.html"""
-    return render(request,'blog/login.html')
+    error = False
+    if request.method == "POST":
+        form = ConnexionForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=name, password=password)  # Nous vérifions si les données sont correctes
+            if user:  # Si l'objet renvoyé n'est pas None
+                login(request, user)  # nous connectons l'utilisateur
+            else:  # sinon une erreur sera affichée
+                error = True
+    else:
+        form = ConnexionForm()
+    return render(request,'blog/login.html', locals())
 
-
+def deconnexion(request):
+    logout(request)
+    return redirect(reverse(connexion))
 
 def signup(request):
     """method for return createaccount.html"""
