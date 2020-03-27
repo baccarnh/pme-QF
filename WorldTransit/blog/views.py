@@ -29,7 +29,17 @@ def deconnexion(request):
     return render(request, 'home.html', {'user': user})
 
 def signup(request):
-    """method for return createaccount.html"""
+    """method for  createaccount """
+    #methode a amelioré biesure ici juste pour voir le fonctionement
+    u = Users(name=request.POST.get("name"),
+              last_name=request.POST.get("last_name"),
+              pseudo=request.POST.get("pseudo"),
+              email=request.POST.get("email"),
+              job=request.POST.get(" job"),
+              password=request.POST.get("password")
+              )
+    u.save()
+        #return render(request, 'home.html', {'user': user})
 
     return render(request, 'blog/createaccount.html', {'user': user})
 
