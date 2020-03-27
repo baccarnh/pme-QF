@@ -3,10 +3,88 @@
     {% load static %}
  {% block content %}
 
-                  <form method="post" action="">
-                    <input type="text" name="username" id="">
-                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Create</a></button>
-                  </form>
+                  <section id="contact" class="padd-section wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Create count</h2>
+        <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-3 col-md-4">
+
+          <div class="info">
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p>A108 Adam Street<br>New York, NY 535022</p>
+            </div>
+
+            <div class="email">
+              <i class="fa fa-envelope"></i>
+              <p>info@example.com</p>
+            </div>
+
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+1 5589 55488 55s</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 col-md-8">
+          <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" >
+                 {% csrf_token %}
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Your Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="Your Pseudo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                 <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Your password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Your password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="job" class="form-control" id="job" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+              <div class="text-center"><button type="submit">Create</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}
 

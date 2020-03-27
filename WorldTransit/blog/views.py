@@ -15,9 +15,11 @@ def home(request):
 
 def connexion(request):
     """method for connexion"""
+    pseudo = request.POST.get("pseudo")
+    password = request.POST.get("password")
     global user
-    user = 'nicos'
-    return render(request,'blog/login.html',{'user': user})
+    user = pseudo
+    return render(request,'blog/login.html',{'user': user,'pseudo': pseudo,'password': password})
 
 
 def deconnexion(request):

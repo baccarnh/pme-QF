@@ -15,7 +15,7 @@
             <li id="a5"><a href="{% url 'blog:createaccount' %}">create count</a></li>
             {% else %}
             <li class="menu-active"><a href="{% url 'home' %}">{{ user }}</a></li>
-            <li id="a1"><a href = "{% url 'blog:questionResponse' %}" >Questions</a></li>
+            <li id="a1"><a href="{% url 'blog:questionResponse' %}" >Questions</a></li>
             <li id="a2"><a href="{% url 'blog:newquestions' %}"  >New Questions</a></li>
             <li id="a3"><a href="{% url 'blog:useraccount' %}" >User Account</a></li>
             <li id="a6"><a href="{% url 'blog:logout' %}">Log out</a></li>
