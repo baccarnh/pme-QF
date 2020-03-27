@@ -21,7 +21,7 @@
                   <h2>New Questions</h2>
                   <form method="post" >
                      <label for="pseudo">Votre pseudo :</label>
-                    <input type="text" name="pseudo" id="pseudo" />
+                    <input type="text" name="pseudo" id="pseudo" value="valeur" />
 
                     {% csrf_token %}
                     {% for field in form %}

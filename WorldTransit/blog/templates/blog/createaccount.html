@@ -1,115 +1,13 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+{% extends 'blog/layouts/base.html' %}
     {% load static %}
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <title> {% block title %} WorldTransit {% endblock title %} </title>
-    <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
-
-    <!-- Bootstrap css -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-    <link href="{% static 'css/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Libraries CSS Files -->
-    <link href="{% static 'css/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/lib/owlcarousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/lib/animate/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/lib/modal-video/css/modal-video.min.css' %}" rel="stylesheet">
-
-    <!-- Main Stylesheet File -->
-    <link href="{% static 'css/css/style.css' %}" rel="stylesheet">
-
-</head>
-<header id="header" class="header header-hide">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto"><span>W</span>orldTransit</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active" >
-            <button type="submit" class="btn btn-success" ><a href = ""  ;>Home</a></button>
-          </li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-    {% block img%}{% endblock %}
-
-</header>
-<body>
-<br>
-<br>
-
  {% block content %}
-<div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-12">
-                <div class="feature-block">
-                  <h2>Sign up</h2>
-                  <form method="post">
-                    {% csrf_token %}
-                    {% for field in form %}
-                      <p>
-                        {{ field.label_tag }}<br>
-                        {{ field }}
-                        {% for error in field.errors %}
-                          <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                      </p>
-                    {% endfor %}
+
+                  <form method="post" action="">
+                    <input type="text" name="username" id="">
                     <button type="submit" class="btn btn-success" ><a href = ""  ;>Create</a></button>
                   </form>
-                </div>
-            </div>
-        </div>
-</div>
+
 {% endblock %}
 
 
-
-</body>
- <footer class="footer">
-    <div class="container">
-      <div class="row">
-          <div class="col-md-12 col-lg-12">
-          <div class="footer-logo">
-              <a class="navbar-brand" href="#">eStartup</a>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-   <!-- JavaScript Libraries -->
-  <script src="{% static 'css/lib/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'css/lib/jquery/jquery-migrate.min.js' %}"></script>
-  <script src="{% static 'css/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'css/lib/superfish/hoverIntent.js' %}"></script>
-  <script src="{% static 'css/lib/superfish/superfish.min.js' %}"></script>
-  <script src="{% static 'css/lib/easing/easing.min.js' %}"></script>
-  <script src="{% static 'css/lib/modal-video/js/modal-video.js' %}"></script>
-  <script src="{% static 'css/lib/owlcarousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'css/lib/wow/wow.min.js' %}"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="{% static 'js/contactform/contactform.js' %}"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="{% static 'js/js/main.js' %}"></script>
-
-
-</html>

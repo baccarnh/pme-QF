@@ -1,14 +1,13 @@
 from django.db import models
 """class for 3 tables Users, Questions, Answers"""
 
+
 class Users(models.Model):
     name = models.CharField(max_length=255,default=None)
     last_name = models.CharField(max_length=255,default=None)
     pseudo = models.CharField(max_length=255,default=None)
     job = models.CharField(max_length=255,default=None)
     password = models.CharField(max_length=255,default=None)
-
-
 
 
 class Questions(models.Model):
@@ -18,8 +17,6 @@ class Questions(models.Model):
     author = models.CharField(max_length=255,default=None)
     user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
     status = models.BooleanField(null=True)
-
-
 
 
 class Response(models.Model):
