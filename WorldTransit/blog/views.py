@@ -31,15 +31,16 @@ def deconnexion(request):
 def signup(request):
     """method for  createaccount """
     #methode a amelioré biesure ici juste pour voir le fonctionement
-    u = Users(name=request.POST.get("name"),
+    if request.POST.get("password") == request.POST.get("confirm_password") and request.POST.get("password") is not None:
+        u = Users(name=request.POST.get("name"),
               last_name=request.POST.get("last_name"),
               pseudo=request.POST.get("pseudo"),
               email=request.POST.get("email"),
-              job=request.POST.get(" job"),
+              job=request.POST.get("job"),
               password=request.POST.get("password")
               )
-    u.save()
-        #return render(request, 'home.html', {'user': user})
+        u.save()
+        return render(request, 'home.html', {'user': user})
 
     return render(request, 'blog/createaccount.html', {'user': user})
 
