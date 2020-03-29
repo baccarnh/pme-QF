@@ -23,9 +23,9 @@
                     <h4>{{ k.author }}</h4>
                     <p>{{ k.content }}</p>
                     <p>{{k.publishing_date}}</p>
-                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Voir</a></button>
+                    <button type="submit" class="btn btn-success" ><a href = "{% url 'blog:questionResponse' %}"  ;>Voir</a></button>
                     <button type="submit" class="btn btn-success" ><a href = ""  ;>Modifier</a></button>
-                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Supprimer</a></button>
+                    <button type="submit" class="btn btn-success" ><a href = "{% url 'blog:delete' %}"  ;>Supprimer</a></button>
                     {% if not forloop.last %}
                     <hr>
                     {% endif %}

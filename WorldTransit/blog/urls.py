@@ -7,11 +7,11 @@ urlpatterns = [
     path('login/', views.connexion, name='login'),
     path('logout/', views.deconnexion, name='logout'),
     path('createaccount/', views.signup, name='createaccount'),
-   # path('questionResponse/', views.questionResponse, name='questionResponse'),
     path('questionResponse/', views.response, name='questionResponse'),
     path('useraccount/', views.useraccount, name='useraccount'),
     path('newquestions/', views.questions, name='newquestions'),
     path('response/', views.response, name='response'),
+    path('delete/', views.delete, name='delete'),
 
 ]
 

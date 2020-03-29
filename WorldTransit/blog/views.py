@@ -9,7 +9,7 @@ from datetime import timezone
 
 """variable global"""
 user = None
-
+action_question = None
 
 def home(request):
     return render(request, 'home.html', {'user': user})
@@ -54,21 +54,38 @@ def signup(request):
 
 
 def useraccount(request):
-    """method for return useraccount.html"""
+    """method for show user questions in useraccount html"""
+    #select all question of user in bbd
     quest = Questions.objects.filter( user_id= 1)
     liste = list()
     liste.append(quest)
+    # return list of user in html page
     return render(request, 'blog/useraccount.html', {'user': user, 'quest': liste})
+
+def delete(request):
+    """method for delete object"""
+    if request.method == 'POST':
+        global  action_question
+        action_question = Questions.title
+        if action_question== Questions.title:
+            quest = get_object_or_404(Questions, title = action_question)
+            quest.delete()
+        return render(request, 'blog/delete.html', {'user': user})
+
+
+def modify(request):
+    """method for delete object"""
+    return render(request, 'blog/modify.html', {'user': user})
 
 
 def response(request):
     """method for display question and response """
     global user
-    # i get the objezct in bdd and i add it in list
+    # i get the object in bdd and i add it in list
     quest = get_object_or_404(Questions, id=2)
     liste = list()
     liste.append(quest)
-    # i get the objezct in bdd and i add it in list
+    # i get the object in bdd and i add it in list
     resp = Response.objects.filter(user_id=1)
     liste2 = list()
     liste2.append(resp)
@@ -81,7 +98,7 @@ def response(request):
             resp = form.save()
             resp.refresh_from_db()  # load the profile instance created by the signal
             resp.save()
-            #i save it and i return to home page
+            #i save the new response in bdd  and i return to home page
             return redirect('home')
     else:# else a resent the pages with form
         form = ResponseForm()
