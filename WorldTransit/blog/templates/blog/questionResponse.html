@@ -18,12 +18,13 @@
         {% for question in liste_question %}
         <div class="col-md-6 col-lg-4">
           <div class="feature-block">
-              <span>{{ question.user.name }}</span>
+              <h3>objet: {{ question.title }}</h3>
+              <span>{{ question.user.name }}:</span>
             <h4> {{ question.content }}</h4>
               <hr>
               {% for response in liste_response %}
                     {% if response.question.id == question.id %}
-                    <span>{{ response.user.name }}</span>
+                    <span>{{ response.user.name }}:</span>
                     <p>{{ response.content}}</p>
                     {% endif %}
               {% endfor %}
