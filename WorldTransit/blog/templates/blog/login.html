@@ -7,7 +7,7 @@
     <div class="container">
       <div class="section-title text-center">
         <h2>Login</h2>
-        <p class="separator">salam alikoum</p>
+        <p class="separator">{{  retour  }}</p>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
             <form action="{% url 'blog:login' %}" method="post" role="form" >
               {% csrf_token %}
               <div class="form-group">
-                <input type="text" name="pseudo" class="form-control" id="name" placeholder="Your pseudo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="email" name="email" class="form-control" id="name" placeholder="Your pseudo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">

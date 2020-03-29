@@ -15,33 +15,39 @@ def home(request):
 
 def connexion(request):
     """method for connexion"""
-    pseudo = request.POST.get("pseudo")
-    password = request.POST.get("password")
-    global user
-    user = pseudo
-    return render(request,'blog/login.html',{'user': user,'pseudo': pseudo,'password': password})
+    liste = Users.objects.all()
+    for u in liste:
+        if u.email == request.POST.get("email") and u.password == hashlib.sha1(request.POST.get("password").encode()).hexdigest():
+            global user
+            user = u
+            return render(request,'home.html',{'user':user})
+    return render(request,'blog/login.html',{'user': user})
 
 
 def deconnexion(request):
     global user
-    #le traitement de deconnection a faire
     user = None
     return render(request, 'home.html', {'user': user})
 
 def signup(request):
     """method for  createaccount """
-    #methode a amelioré biesure ici juste pour voir le fonctionement
+    liste = Users.objects.all()
+    for el in liste:
+        if el.email == request.POST.get("email"):
+            return render(request, 'blog/createaccount.html', {'user': user,'message':'e-maill existe déja'})
+
     if request.POST.get("password") == request.POST.get("confirm_password") and request.POST.get("password") is not None:
+        password = request.POST.get("password").encode()
+        password = hashlib.sha1(password).hexdigest()
         u = Users(name=request.POST.get("name"),
               last_name=request.POST.get("last_name"),
               pseudo=request.POST.get("pseudo"),
               email=request.POST.get("email"),
               job=request.POST.get("job"),
-              password=request.POST.get("password")
+              password=password
               )
         u.save()
-        return render(request, 'home.html', {'user': user})
-
+        return render(request, 'home.html', {'user': user,'liste':liste})
     return render(request, 'blog/createaccount.html', {'user': user})
 
 
