@@ -27,7 +27,7 @@
                     <p>{{ response.content}}</p>
                     {% endif %}
               {% endfor %}
-            <a href="#">poster une reponse</a>
+            <a href="{% url 'blog:response' question_id=question.id %}">poster une reponse</a>
           </div>
         </div>
         {% endfor %}

@@ -8,7 +8,6 @@ urlpatterns = [
     path('logout/', views.deconnexion, name='logout'),
     path('createaccount/', views.signup, name='createaccount'),
     path('questionResponse/', views.questionResponse, name='questionResponse'),
-    path('useraccount/', views.useraccount, name='useraccount'),
     path('newquestions/', views.questions, name='newquestions'),
-    path('response/', views.response, name='response'),
+    path('response/<question_id>', views.response, name='response'),
 ]
