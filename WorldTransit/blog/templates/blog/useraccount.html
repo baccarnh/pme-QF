@@ -9,30 +9,11 @@
     <div class="container">
       <div class="section-title text-center">
 
-        <h2>Vos sujets non résolus </h2>
+        <h2>Vos sujets </h2>
         <p class="separator"><hr> .</p>
 
       </div>
     </div>
-    <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-12">
-                    <div class="feature-block">
-                      <form method="post" >
-                          {% csrf_token %}
-                          <div class="form-group">
-                         <label for="title">title :</label>
-                        <input type="text" name="title" id="title" required />
-                            </div>
-                          <div class="form-group">
-                            <label for="content">Questions</label>
-                            <textarea class="form-control" name="content" id="content" rows="3"></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-success" ><a href = "{% url 'blog:useraccount' %}"  ;>Post</a></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
     </div>
     <div class="container">
         <div class="row">
@@ -42,6 +23,9 @@
                     <h4>{{ k.author }}</h4>
                     <p>{{ k.content }}</p>
                     <p>{{k.publishing_date}}</p>
+                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Voir</a></button>
+                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Modifier</a></button>
+                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Supprimer</a></button>
                     {% if not forloop.last %}
                     <hr>
                     {% endif %}

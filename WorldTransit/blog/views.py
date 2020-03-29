@@ -17,16 +17,19 @@ def home(request):
 
 def connexion(request):
     """method for connexion"""
-    pseudo = request.POST.get("pseudo")
-    password = request.POST.get("password")
     global user
-    user = pseudo
-    return render(request, 'blog/login.html', {'user': user, 'pseudo': pseudo, 'password': password})
+    if user is None:
+        pseudo = request.POST.get("pseudo")
+        password = request.POST.get("password")
+        user = pseudo
+        return render(request, 'blog/login.html', {'user': user, 'pseudo': pseudo, 'password': password})
+    else:
+        return render(request, 'home.html', {'user': user})
 
 
 def deconnexion(request):
-    global user
     # le traitement de deconnection a faire
+    global user
     logout(request)
     user = None
     return render(request, 'home.html', {'user': user})
@@ -52,7 +55,10 @@ def signup(request):
 
 def useraccount(request):
     """method for return useraccount.html"""
-    return render(request, 'blog/useraccount.html', {'user': user})
+    quest = Questions.objects.filter( user_id= 1)
+    liste = list()
+    liste.append(quest)
+    return render(request, 'blog/useraccount.html', {'user': user, 'quest': liste})
 
 
 def response(request):
@@ -82,8 +88,6 @@ def response(request):
         #i show the pages and i send the list and the form for dsiplay elems
     return render(request, 'blog/questionResponse.html', {'quest': liste, 'resp': liste2, 'form': form})
 
-    def handler404(request):
-        return render(request, 'errors/404.html', status=404)
 
 def questions(request):
     """i display form with django forms based in class response in models
