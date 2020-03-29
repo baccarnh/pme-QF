@@ -67,11 +67,12 @@ def delete(request):
     if request.method == 'POST':
         global  action_question
         action_question = Questions.title
-        if action_question== Questions.title:
+        if action_question == Questions.title:
             quest = get_object_or_404(Questions, title = action_question)
             quest.delete()
         return render(request, 'blog/delete.html', {'user': user})
 
+    #return render(request, 'blog/useraccount.html', {'user': user})
 
 def modify(request):
     """method for delete object"""
