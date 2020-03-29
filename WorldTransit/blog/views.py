@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Questions, Response, Users
 from django.contrib.auth import authenticate, login, logout
@@ -7,11 +9,8 @@ import hashlib
 """variable global"""
 user = None
 
-
 def home(request):
-
     return render(request, 'home.html', {'user': user})
-
 
 def connexion(request):
     """method for connexion"""
@@ -58,8 +57,10 @@ def useraccount(request):
 
 def questionResponse(request):
     """method for return questionResponse.html with some question and response in bdd """
-
-    return render(request, 'blog/questionResponse.html', {'user': user})
+    liste_question = Questions.objects.all()
+    liste_response = Response.objects.all()
+    return render(request, 'blog/questionResponse.html', {'user': user,'liste_question':liste_question,
+                                                          'liste_response':liste_response})
 
 
 def response(request):
@@ -70,6 +71,14 @@ def response(request):
 
 def questions(request):
     """method for post questions"""
+    if user is not None and request.POST.get("title") is not None:
+        q = Questions(
+                  title=request.POST.get("title"),
+                  content=request.POST.get("message"),
+                  publishing_date= datetime.now(),
+                  user = user
+                  )
+        q.save()
 
     return render(request, 'blog/newquestions.html', {'user': user})
 
