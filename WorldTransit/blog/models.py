@@ -16,14 +16,15 @@ class Questions(models.Model):
     content = models.TextField(default=None)
     publishing_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    status = models.BooleanField(null=True)
+    status = models.BooleanField(null=True,default=False)
 
 
 class Response(models.Model):
+    title = models.CharField(max_length=255,default=None)
     content = models.TextField(default=None)
     publishing_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    question = models.ForeignKey(Questions,on_delete=models.CASCADE)
 
 
 

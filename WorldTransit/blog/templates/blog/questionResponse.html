@@ -2,94 +2,38 @@
 
         {% load static %}
      {% block content %}
-<html lang="fr">
-
-    <meta charset="UTF-8">
-    <title>questionResponse</title>
-
-
-
 <section id="get-started" class="padd-section text-center wow fadeInUp">
 
     <div class="container">
       <div class="section-title text-center">
 
-        <h2>Questions ainsi que (ca) ou c'est réponses </h2>
+        <h2>Questions reponses </h2>
         <p class="separator"><hr> .</p>
 
       </div>
     </div>
+
     <div class="container">
       <div class="row">
-          <div class="col-md-6 col-lg-12">
-              <div class="feature-block">
-                  {% for i in quest %}
-
-                  <div>
-                        <label>Titre: {{ i.title }}</label>
-                  </div>
-                  <div>
-                        <label>Question: {{ i.content }}</label>
-                  </div>
-                  <p>{{i.publishing_date}}</p>
-                  {% if not forloop.last %}
-                  <hr>
-                  {% endif %}
-                  {% empty %}
-                  {% endfor %}
-              </div>
+        {% for question in liste_question %}
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-block">
+              <h3>objet: {{ question.title }}</h3>
+              <span>{{ question.user.name }}:</span>
+            <h4> {{ question.content }}</h4>
+              <hr>
+              {% for response in liste_response %}
+                    {% if response.question.id == question.id %}
+                    <span>{{ response.user.name }}:</span>
+                    <p>{{ response.content}}</p>
+                    {% endif %}
+              {% endfor %}
+            <a href="{% url 'blog:response' question_id=question.id %}">poster une reponse</a>
           </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-12">
-                <div class="feature-block">
-                    <h4>Reponses</h4>
-                    {% for i in resp %} {% for k in i %}
-                     <div>
-                        <label>Réponse: {{ k.content }}</label>
-                    </div>
-                    <p>{{k.publishing_date}}</p>
-                    {% if not forloop.last %}
-                    <hr>
-                    {% endif %}
-                    {% empty %}
-                    {% endfor %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-     <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <div class="feature-block">
-                      <div class="form">
 
-                              <h2>Répondre</h2>
-                              <form method="post">
-                                {% csrf_token %}
-                                {% for field in form %}
-                                  <p>
-                                    {{ field.label_tag }}<br>
-                                    {{ field }}
-                                    {% for error in field.errors %}
-                                      <p style="color: red">{{ error }}</p>
-                                    {% endfor %}
-                                  </p>
-                                {% endfor %}
-                                <button type="submit" class="btn btn-success" ><a href = ""  ;>Post</a></button>
-                              </form>
-                            </div>
-                        </div>
-                    </div>
-        </div>
-
-
-
-</section>
-
-
-</html>
+  </section>
 {% endblock %}
