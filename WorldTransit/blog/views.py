@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render
 from .models import Questions, Response, Users
-
+from .forms import UsersForm, ResponseForm, QuestionsForm
 import hashlib
 
 """variable global"""
@@ -14,7 +14,7 @@ def connexion(request):
     """method for connexion"""
     liste = Users.objects.all()
     for u in liste:
-        if u.email == request.POST.get("email") and u.password == hashlib.sha1(request.POST.get("password").encode()).hexdigest():
+        if u.email == request.POST.get("email") and u.password == request.POST.get("password"):
             global user
             user = u
             return render(request,'home.html',{'user':user})
@@ -29,22 +29,13 @@ def deconnexion(request):
 def signup(request):
     """method for  createaccount """
     liste = Users.objects.all()
-    for el in liste:
-        if el.email == request.POST.get("email"):
-            return render(request, 'blog/createaccount.html', {'user': user,'message':'e-maill existe déja'})
-
-    if request.POST.get("password") == request.POST.get("confirm_password") and request.POST.get("password") is not None:
-        password = request.POST.get("password").encode()
-        password = hashlib.sha1(password).hexdigest()
-        Users(name=request.POST.get("name"),
-              last_name=request.POST.get("last_name"),
-              pseudo=request.POST.get("pseudo"),
-              email=request.POST.get("email"),
-              job=request.POST.get("job"),
-              password=password
-              ).save()
+    form = UsersForm()
+    if request.POST == 'POST':
+        form = UsersForm(request.POST)
+        if form.is_valid():
+            form.save()
         return render(request, 'home.html', {'user': user,'liste':liste})
-    return render(request, 'blog/createaccount.html', {'user': user})
+    return render(request, 'blog/createaccount.html', {'user': user, 'form': form})
 
 
 def useraccount(request):
@@ -61,28 +52,24 @@ def questionResponse(request):
 
 def questions(request):
     """method for post new questions"""
-    if user is not None and request.POST.get("title") is not None:
-        Questions(
-                  title=request.POST.get("title"),
-                  content=request.POST.get("message"),
-                  publishing_date= datetime.now(),
-                  user = user
-                  ).save()
-
-    return render(request, 'blog/newquestions.html', {'user': user})
+    liste = Questions.objects.all()
+    form = QuestionsForm()
+    if request.POST == 'POST':
+        form = QuestionsForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return render(request, 'home.html', {'user': user,'liste':liste})
+    form = QuestionsForm()
+    return render(request, 'blog/newquestions.html', {'user': user, 'form': form})
 
 
 def response(request,question_id):
-    questions = Questions.objects.filter(pk=question_id)
-    if len(questions) >0 and user is not None and request.POST.get("message") is not None:
-        question = questions[0]
-        Response(
-            title=question.title,
-            content=request.POST.get("message"),
-            publishing_date=datetime.now(),
-            question=question,
-            user=user
-        ).save()
+    liste = Questions.objects.all()
+    if request.POST == 'POST':
+        form = ResponseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'home.html', {'user': user, 'liste': liste})
     return render(request, 'blog/response.html', {'user': user})
 
 

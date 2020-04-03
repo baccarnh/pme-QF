@@ -17,16 +17,10 @@
       <div class="row">
         {% for question in liste_question %}
         <div class="col-md-6 col-lg-4">
-          <div class="feature-block">
-              <h3>objet: {{ question.title }}</h3>
-              <span>{{ question.user.name }}:</span>
-            <h4> {{ question.content }}</h4>
+          <p>{{question}}</p>
               <hr>
               {% for response in liste_response %}
-                    {% if response.question.id == question.id %}
-                    <span>{{ response.user.name }}:</span>
-                    <p>{{ response.content}}</p>
-                    {% endif %}
+                <p>{{ response}}</p>
               {% endfor %}
             <a href="{% url 'blog:response' question_id=question.id %}">poster une reponse</a>
           </div>
