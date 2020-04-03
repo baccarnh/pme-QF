@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+
+        {% load static %}
+     {% block content %}
+<html lang="fr">
+
+    <meta charset="UTF-8">
+    <body>
+    <title>Nouvelles Questions</title>
+
+
+
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+
+        <p class="separator"><hr> .</p>
+
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-12">
+                <div class="feature-block">
+                  <h2>New Questions</h2>
+                  <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                      <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% for error in field.errors %}
+                          <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                      </p>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success" ><a href = ""  ;>Post</a></button>
+                  </form>
+                </div>
+            </div>
+        </div>
+</div>
+    </body>
+</html>
+{% endblock %}
